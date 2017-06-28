@@ -12,6 +12,7 @@ public class Console {
         sc = new Scanner(System.in);
         data = sc.nextLine();
 
+        // Works nicely in the real termimal, not so much in the AS terminal :(
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
