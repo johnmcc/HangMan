@@ -17,10 +17,10 @@ public class Console {
         System.out.flush();
 
         Word word = new Word(data);
-        Player player1 = new Player();
-        Game game = new Game(word, player1);
+        Player player = new Player();
+        Game game = new Game(word, player);
 
-        while (!player1.isDead() && !game.getIsWon()) {
+        while (!player.isDead() && !game.getIsWon()) {
             System.out.println("Enter your guess:");
 
             data = sc.nextLine();

@@ -3,15 +3,15 @@ package com.codeclan.example.hangman;
 import java.util.ArrayList;
 
 public class Game {
-    private Player player1;
+    private Player player;
     private boolean isWon = false;
     private Word word;
     private ArrayList<Character> guesses;
 
-    public Game(Word word, Player player1) {
+    public Game(Word word, Player player) {
         this.word = word;
         this.guesses = new ArrayList<Character>();
-        this.player1 = player1;
+        this.player = player;
     }
 
     public boolean getIsWon() {
@@ -40,14 +40,14 @@ public class Game {
         Character lastGuess = guesses.get(guesses.size() - 1);
 
         if (!word.getWord().contains(lastGuess.toString().toLowerCase())) {
-            player1.loseLife();
+            player.loseLife();
             sb.append("Oh no! You slip closer to death...\n");
         }
 
         // Pass guesses to our word, get new word
         sb.append(this.word.update(guesses));
         sb.append("\n");
-        sb.append("You have " + player1.getNumLives() + " lives remaining.");
+        sb.append("You have " + player.getNumLives() + " lives remaining.");
 
         // check if the game is won
         if (word.getWord().equals(word.getHiddenWord())) {
